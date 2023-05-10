@@ -26,7 +26,7 @@ describe('Todo List', () => {
   beforeEach(() => {
     todoItems = [];
   });
- describe('addTodo', () => {
+  describe('addTodo', () => {
     it('should add a todo to the list', () => {
       addTodo('Test todo');
       expect(todoItems.length).toEqual(1);
@@ -74,5 +74,4 @@ describe('Todo List', () => {
     expect(todoList.tagName).toEqual('UL');
     expect(todoList.className).toEqual('todo-list');
   });
-});
 });
