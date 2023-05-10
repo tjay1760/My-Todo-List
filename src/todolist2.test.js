@@ -47,3 +47,25 @@ const clearAll = () => {
   localStorage.setItem('todos', JSON.stringify(todoArray));
   return todoArray;
 };
+
+describe('todo', () => {
+  test('add a todo to todo array', () => {
+    addTodo();
+    expect(todoArray.length).toBe(1);
+  });
+  test('edit todo description with value of two', () => {
+    editTodo(1, 'two');
+    expect(todoArray[0].description).toBe('two');
+  });
+  test('check if completed status is updated', () => {
+    updateTodoStatus(1);
+    expect(todoArray[0].completed).toBe(true);
+  });
+  test('test clear all completed', () => {
+    updateTodoStatus(1);
+    clearAll();
+    for (let i = 0; i < todoArray.length; i += 1) {
+      expect(todoArray[i].completed).toBe(false);
+    }
+  });
+});
